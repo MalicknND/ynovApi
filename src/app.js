@@ -30,48 +30,48 @@ app.use('/api/v1/', apiRouter);
 //faire find one by id; find all; update one by id; delete one by id;
 
 //Find one by id
-app.get('/user/:id', async (req, res) => {
-  try {
-    const data = await User.findById(req.params.id);
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+// app.get('/user/:id', async (req, res) => {
+//   try {
+//     const data = await User.findById(req.params.id);
+//     res.json(data);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 //find all
-app.get('/user', async (req, res) => {
-  try {
-    const data = await User.find();
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+// app.get('/user', async (req, res) => {
+//   try {
+//     const data = await User.find();
+//     res.json(data);
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 //delete by id
-app.delete('/user/:id', (req, res) => {
-  const id = req.params.id;
-  User.deleteOne({ id: id })
-    .exec()
-    .then((user) => {
-      res.send(user);
-    });
-});
+// app.delete('/user/:id', (req, res) => {
+//   const id = req.params.id;
+//   User.deleteOne({ id: id })
+//     .exec()
+//     .then((user) => {
+//       res.send(user);
+//     });
+// });
 
 //update by id
-app.put('/user/:id'),
-  async (req, res) => {
-    try {
-      const id = req.params.id;
-      const updateData = req.body;
-      const options = { new: true };
-      const result = await User.findByIdAndUpdate(id, updateData, options);
-      res.send(result);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  };
+// app.put('/user/:id'),
+//   async (req, res) => {
+//     try {
+//       const id = req.params.id;
+//       const updateData = req.body;
+//       const options = { new: true };
+//       const result = await User.findByIdAndUpdate(id, updateData, options);
+//       res.send(result);
+//     } catch (error) {
+//       res.status(500).json({ error: error.message });
+//     }
+//   };
 //update by id
 // app.put('/user/:id', (req, res) => {
 //   const id = req.params.id;
