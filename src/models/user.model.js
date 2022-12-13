@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema(
     isAdmin: {
       type: 'Boolean',
       required: true,
-      default: false,
+      default: true,
     },
     password: {
       type: 'String',
@@ -35,6 +35,7 @@ const userSchema = mongoose.Schema(
       maxLength: 250,
       minLength: 2,
     },
+    wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
   },
   {
     timestamps: true,

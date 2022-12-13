@@ -60,5 +60,5 @@ exports.login = (req, res) => {
         token: userToken,
       });
     })
-    .catch((err) => res.Status(400).send(err));
+    .catch((err) => res.status(400).send(err));
 };
