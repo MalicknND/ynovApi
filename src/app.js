@@ -27,6 +27,10 @@ mongoose
 //
 app.use('/api/v1/', apiRouter);
 
+app.listen(process.env.PORT, function () {
+  console.log('Vous êtes connecté');
+});
+
 //faire find one by id; find all; update one by id; delete one by id;
 
 //Find one by id
@@ -114,6 +118,3 @@ app.use('/api/v1/', apiRouter);
 // });
 
 //method launch app
-app.listen(process.env.PORT, function () {
-  console.log('Vous êtes connecté');
-});

@@ -6,25 +6,41 @@ const jwt = require('jsonwebtoken');
 //cryptage de mot de passe
 const bcrypt = require('bcrypt');
 
-//inscription avec la methode post
-exports.register = (req, res) => {
-  // hasher le password avant entrée en base de données
-  let hashedPassword = bcrypt.hashSync(req.body.password, 10);
+// inscription avec la methode post
+// exports.register = (req, res) => {
+//    hasher le password avant entrée en base de données
+//   let hashedPassword = bcrypt.hashSync(req.body.password, 10);
+//   const newUser = new User({
+//     firstName: req.body.firstName,
+//     lastName: req.body.lastName,
+//     email: req.body.email,
+//     password: hashedPassword,
+//   });
+
+//   newUser
+//     .save()
+//     .then((data) => {
+//       res.send(data);
+//     })
+//     .catch((err) => {
+//       res.status(400).send(err);
+//     });
+// };
+
+exports.register = async (req, res) => {
   const newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
+    password: req.body.password,
     email: req.body.email,
-    password: hashedPassword,
   });
 
-  newUser
-    .save()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+  try {
+    const newUserToSave = await newUser.save();
+    return res.send(newUserToSave);
+  } catch (err) {
+    res.status(400).send(err);
+  }
 };
 
 //connexion de l'utilisateur
