@@ -27,7 +27,7 @@ const bcrypt = require('bcrypt');
 //     });
 // };
 
-exports.register = async (req, res) => {
+exports.register = async (req, res, next) => {
   const newUser = new User({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -39,7 +39,8 @@ exports.register = async (req, res) => {
     const newUserToSave = await newUser.save();
     return res.send(newUserToSave);
   } catch (err) {
-    res.status(400).send(err);
+    // res.status(400).send(err);
+    next(err);
   }
 };
 

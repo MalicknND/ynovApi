@@ -3,6 +3,7 @@ const app = express(); // on démarre express
 const bodyParser = require('body-parser'); //permet de parser tous les modules
 const mongoose = require('mongoose');
 const apiRouter = require('./routes/index');
+const errorHandler = require('./middlewares/errorsHandling');
 
 require('dotenv').config(); //on le met aprés avoir fait npm i dotenv
 
@@ -26,6 +27,8 @@ mongoose
 
 //
 app.use('/api/v1/', apiRouter);
+//middlewares pour les erreurs
+app.use(errorHandler);
 
 app.listen(process.env.PORT, function () {
   console.log('Vous êtes connecté');
