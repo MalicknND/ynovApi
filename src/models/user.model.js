@@ -43,7 +43,7 @@ const userSchema = mongoose.Schema(
   }
 );
 
-//validation sur
+//validation
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) {
     return next();
