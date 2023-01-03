@@ -4,10 +4,11 @@
   "description": "API-YNOV",
   "main": "./src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./build/app.js",
     "dev": "nodemon ./src/app.js",
-    "build": "babel ./src -d ./build"
+    "start": "node ./build/app.js",
+    "build": "babel ./src -d ./build",
+    "lint": "eslint --ext js ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Malick",
   "license": "ISC",
@@ -24,6 +25,9 @@
     "@babel/cli": "^7.20.7",
     "@babel/core": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "nodemon": "^2.0.20"
   }
 }
