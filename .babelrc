@@ -1,0 +1,5 @@
+// fichier de config pour ecrire le comportement du compileur
+//les dernieres specifications de javascript
+{
+  "presets": ["@babel/preset-env"]
+}
