@@ -4,6 +4,7 @@ const bodyParser = require('body-parser'); //permet de parser tous les modules
 const mongoose = require('mongoose');
 const apiRouter = require('./routes/index');
 const errorHandler = require('./middlewares/errorsHandling');
+const cors = require('cors');
 
 require('dotenv').config(); //on le met aprés avoir fait npm i dotenv
 
@@ -25,7 +26,7 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-//
+app.use(cors()); //permet de faire des requêtes entre deux serveurs
 app.use('/api/v1/', apiRouter);
 //middlewares pour les erreurs
 app.use(errorHandler);
